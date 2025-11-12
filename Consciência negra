@@ -1,0 +1,206 @@
+import React from "react";
+
+/**
+ * Academia Consciência Negra - Single-file React component
+ * - TailwindCSS utility classes used for styling (no imports required here)
+ * - Replace image URLs, links and contact handling with your real backend/services
+ * - Accessibility-minded markup (aria labels, semantic tags)
+ *
+ * Uso: importe e renderize <AcademiaConscienciaNegra /> em sua aplicação React.
+ */
+
+export default function AcademiaConscienciaNegra() {
+  const courses = [
+    { title: "História e Consciência Negra", length: "8 semanas" },
+    { title: "Afroempreendedorismo", length: "6 semanas" },
+    { title: "Cultura, Arte e Resistência", length: "10 semanas" },
+    { title: "Políticas Públicas e Direitos", length: "6 semanas" },
+  ];
+
+  const team = [
+    { name: "Profª. Ana Silva", role: "Historiadora / Coordenadora" },
+    { name: "Prof. João Mendes", role: "Direitos Humanos" },
+    { name: "Mestre Lúcia Ramos", role: "Artes e Cultura" },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-900 antialiased">
+      <header className="bg-gradient-to-r from-purple-800 via-red-700 to-yellow-500 text-white">
+        <div className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
+          <h1 className="text-2xl font-extrabold tracking-tight">Academia Consciência Negra</h1>
+          <nav aria-label="Menu principal">
+            <ul className="flex gap-6 items-center">
+              <li><a href="#sobre" className="hover:underline">Sobre</a></li>
+              <li><a href="#cursos" className="hover:underline">Cursos</a></li>
+              <li><a href="#eventos" className="hover:underline">Eventos</a></li>
+              <li><a href="#contato" className="hover:underline">Contato</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        {/* Hero */}
+        <section className="relative overflow-hidden">
+          <div className="max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <p className="text-sm uppercase tracking-wider">Educação · Cultura · Ação</p>
+              <h2 className="mt-4 text-4xl md:text-5xl font-extrabold leading-tight">Formando lideranças e fortalecendo memórias</h2>
+              <p className="mt-6 text-lg leading-relaxed text-gray-100">A Academia Consciência Negra é um espaço de formação política, cultural e técnica dedicado ao reconhecimento, valorização e empoderamento da comunidade negra.</p>
+
+              <div className="mt-8 flex gap-4">
+                <a href="#cursos" className="inline-block rounded-xl px-6 py-3 bg-white text-gray-900 font-semibold shadow">Ver cursos</a>
+                <a href="#contato" className="inline-block rounded-xl px-6 py-3 border-2 border-white text-white hover:bg-white/10">Participe</a>
+              </div>
+
+              <div className="mt-8 text-sm text-gray-200">
+                <strong>Local:</strong> Centro Cultural + Aulas online. <br />
+                <strong>Próximo evento:</strong> Roda de conversa - 20 de novembro de 2025 (online e presencial).
+              </div>
+            </div>
+
+            <div className="order-first md:order-last">
+              {/* Placeholder image - replace with local asset or unsplash link */}
+              <img
+                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80"
+                alt="Pessoas em roda de conversa" 
+                className="w-full rounded-2xl shadow-lg object-cover h-72 md:h-96"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Sobre */}
+        <section id="sobre" className="max-w-6xl mx-auto px-6 py-16">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-3xl font-bold">Nossa missão</h3>
+              <p className="mt-4 text-lg leading-relaxed">Promover educação crítica, preservação da memória e criação de oportunidades para jovens e adultxs negras/os através de cursos, eventos e parcerias comunitárias.</p>
+
+              <ul className="mt-6 space-y-3 pl-4 list-disc text-gray-700">
+                <li>Formação política e histórica</li>
+                <li>Qualificação profissional e empreendedorismo</li>
+                <li>Programas de mentorias e bolsas</li>
+                <li>Atividades culturais e artísticas</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-semibold">Como funcionamos</h4>
+              <p className="mt-3">A Academia oferece turmas presenciais e turmas online ao vivo. Trabalhamos com professores e ativistas convidados, além de promover intercâmbio com coletivos culturais.</p>
+
+              <div className="mt-6 grid grid-cols-2 gap-4">
+                <div className="p-4 bg-white rounded-xl shadow">
+                  <strong>Inclusão</strong>
+                  <p className="text-sm mt-2">Acessibilidade e bolsas parciais.</p>
+                </div>
+                <div className="p-4 bg-white rounded-xl shadow">
+                  <strong>Certificação</strong>
+                  <p className="text-sm mt-2">Certificados reconhecidos para todos os cursos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Cursos */}
+        <section id="cursos" className="bg-white/80 py-16">
+          <div className="max-w-6xl mx-auto px-6">
+            <h3 className="text-3xl font-bold">Cursos</h3>
+            <p className="mt-3 text-gray-700">Programas pensados para diferentes faixas etárias e objetivos — educação formal, formação política, empreendedorismo e cultura.</p>
+
+            <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {courses.map((c) => (
+                <article key={c.title} className="p-5 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow hover:scale-[1.01] transition-transform">
+                  <h4 className="font-semibold">{c.title}</h4>
+                  <p className="mt-2 text-sm text-gray-600">Duração: {c.length}</p>
+                  <p className="mt-4 text-sm text-gray-700">O curso aborda temas centrais da experiência negra, estratégias de memória e ação coletiva. Ideal para estudantes, educadores e lideranças comunitárias.</p>
+                  <div className="mt-4">
+                    <a href="#contato" className="text-sm font-semibold underline">Inscreva-se</a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Eventos */}
+        <section id="eventos" className="max-w-6xl mx-auto px-6 py-16">
+          <h3 className="text-3xl font-bold">Eventos</h3>
+          <p className="mt-3 text-gray-700">Encontros mensais, oficinas e performances. Acompanhe a programação para participar.</p>
+
+          <div className="mt-6 grid md:grid-cols-3 gap-6">
+            <div className="p-4 bg-white rounded-xl shadow">
+              <h5 className="font-semibold">Roda de Conversa: Memória e Futuro</h5>
+              <p className="text-sm text-gray-600 mt-2">20 de novembro de 2025 — 19h (Online / Presencial)</p>
+            </div>
+            <div className="p-4 bg-white rounded-xl shadow">
+              <h5 className="font-semibold">Oficina de Voz e Narrativa</h5>
+              <p className="text-sm text-gray-600 mt-2">04 de dezembro de 2025 — 14h (Centro Cultural)</p>
+            </div>
+            <div className="p-4 bg-white rounded-xl shadow">
+              <h5 className="font-semibold">Feira Afroempreendedora</h5>
+              <p className="text-sm text-gray-600 mt-2">Janeiro de 2026 — data a confirmar</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Equipe */}
+        <section id="equipe" className="bg-gray-100 py-16">
+          <div className="max-w-6xl mx-auto px-6">
+            <h3 className="text-3xl font-bold">Equipe</h3>
+            <div className="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {team.map((m) => (
+                <div key={m.name} className="p-4 bg-white rounded-xl shadow text-center">
+                  <div className="h-28 w-28 mx-auto rounded-full bg-gray-200 flex items-center justify-center text-xl font-semibold">{m.name.split(' ').map(n=>n[0]).slice(0,2).join('')}</div>
+                  <h4 className="mt-4 font-semibold">{m.name}</h4>
+                  <p className="text-sm text-gray-600">{m.role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contato / Footer */}
+        <section id="contato" className="max-w-6xl mx-auto px-6 py-16">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-bold">Fale conosco</h3>
+              <p className="mt-3 text-gray-700">Tem dúvidas ou quer propor uma parceria? Envie uma mensagem — responderemos em até alguns dias úteis.</p>
+
+              <address className="not-italic mt-6 text-sm text-gray-700">
+                <strong>Endereço:</strong> Rua Exemplo, 123 — Centro Cultural<br />
+                <strong>Email:</strong> contato@consciencianegra.org<br />
+                <strong>Telefone:</strong> +55 (11) 99999-9999
+              </address>
+            </div>
+
+            <form className="bg-white p-6 rounded-xl shadow" onSubmit={(e)=>{e.preventDefault(); alert('Formulário de exemplo — conecte seu backend.')}}>
+              <label className="block">
+                <span className="text-sm font-medium">Nome</span>
+                <input aria-label="nome" required className="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2" />
+              </label>
+
+              <label className="block mt-4">
+                <span className="text-sm font-medium">Email</span>
+                <input aria-label="email" type="email" required className="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2" />
+              </label>
+
+              <label className="block mt-4">
+                <span className="text-sm font-medium">Mensagem</span>
+                <textarea aria-label="mensagem" rows={4} required className="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2" />
+              </label>
+
+              <div className="mt-4 flex items-center justify-between">
+                <button type="submit" className="rounded-xl px-4 py-2 bg-gradient-to-r from-purple-700 to-red-500 text-white font-semibold">Enviar</button>
+                <a href="#" className="text-sm underline">Política de privacidade</a>
+              </div>
+            </form>
+          </div>
+
+          <footer className="mt-12 text-center text-sm text-gray-600">© {new Date().getFullYear()} Academia Consciência Negra — Todos os direitos reservados</footer>
+        </section>
+      </main>
+    </div>
+  );
+}
